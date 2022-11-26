@@ -4,32 +4,20 @@ on:
   push:
     tags:
       - '*'
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-
-    - name: install node packages
-      uses: actions/setup-node@v2
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
       with:
         node-version: '16'
         cache: npm
-
-    - name: Cache node dependencies
-      uses: actions/cache@v2
-      env:
-        cache-name: cache-dependencies
-      with:
-        path: |
-          ~/.npm
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('package-lock.json') }}
-    - run: npm install
+        registry-url: 'https://npm.pkg.github.com'
+    - run: npm ci
     - run: npm test
-    - name: Publish
-      run: |
-        npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
-        npm publish --ignore-scripts
+    - run: npm publish --ignore-scripts
       env:
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
