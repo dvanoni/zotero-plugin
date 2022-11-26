@@ -1,5 +1,5 @@
 {
-  "name": "zotero-plugin",
+  "name": "@dvanoni/zotero-plugin",
   "version": "1.4.8",
   "description": "Zotero plugin builder",
   "homepage": "https://github.com/retorquere/zotero-plugin/wiki",
@@ -65,6 +65,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/dvanoni/zotero-plugin.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "license": "ISC",
   "files": [
