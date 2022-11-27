@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-/* eslint-disable @typescript-eslint/no-unsafe-argument, no-console, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/restrict-template-expressions */
-
 process.on('unhandledRejection', up => { throw up })
 
 import 'dotenv/config'
@@ -22,22 +20,21 @@ import version from '../version'
 const xpi = `${pkg.name}-${version}.xpi`
 
 const PRERELEASE = false
-// eslint-disable-next-line no-magic-numbers
 const EXPIRE_BUILDS = moment().subtract(7, 'days').toDate().toISOString()
 
 function bail(msg, status = 1) {
-  console.log(msg) // eslint-disable-line no-console
+  console.log(msg)
   process.exit(status)
 }
 
 const dryRun = !CI.service
 if (dryRun) {
-  console.log('Not running on CI service, switching to dry-run mode') // eslint-disable-line no-console
+  console.log('Not running on CI service, switching to dry-run mode')
   CI.branch = require('current-git-branch')()
 }
 
 function report(msg) {
-  console.log(`${dryRun ? 'dry-run: ' : ''}${msg}`) // eslint-disable-line no-console
+  console.log(`${dryRun ? 'dry-run: ' : ''}${msg}`)
 }
 
 if (CI.pull_request) bail('Not releasing pull requests', 0)
@@ -49,6 +46,7 @@ if (CI.tag) {
 }
 
 const tags = new Set
+// eslint-disable-next-line no-cond-assign
 for (let regex = /(?:^|\s)(?:#)([a-zA-Z\d]+)/gm, tag; tag = regex.exec(CI.commit_message); ) {
   tags.add(tag[1])
 }
@@ -88,7 +86,7 @@ async function announce(issue, release) {
     await octokit.issues.createComment({ owner, repo, issue_number: issue, body: msg })
   }
   catch (error) {
-    console.log(`Failed to announce '${build}: ${reason}' on ${issue}`) // eslint-disable-line no-console
+    console.log(`Failed to announce '${build}: ${reason}' on ${issue}`)
   }
 }
 

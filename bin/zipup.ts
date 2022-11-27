@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-/* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call */
-
 import * as fs from 'fs'
 import * as path from 'path'
 import * as archiver from 'archiver'
@@ -12,7 +10,7 @@ import version from '../version'
 const [ , , source, target ] = process.argv
 
 const xpi = path.join(root, 'xpi', `${target}-${version}.xpi`)
-console.log(`creating ${xpi}`) // eslint-disable-line no-console
+console.log(`Creating ${xpi}`)
 if (fs.existsSync(xpi)) fs.unlinkSync(xpi)
 if (!fs.existsSync(path.dirname(xpi))) fs.mkdirSync(path.dirname(xpi))
 
