@@ -23,12 +23,6 @@
   },
   "include": [
     "bin",
-    "loader",
-    "plugin",
-    "script",
-    "content/**/*",
-    "resource/**/*",
-    "setup/**/*",
     "*.ts"
   ],
   "exclude": [

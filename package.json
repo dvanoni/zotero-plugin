@@ -6,8 +6,6 @@
   "bin": {
     "zotero-plugin-release": "bin/release.js",
     "zotero-plugin-zipup": "bin/zipup.js",
-    "zotero-plugin-link": "bin/link.js",
-    "issue-branches": "bin/branches.js",
     "zotero-start": "bin/start.py"
   },
   "author": {
@@ -71,41 +69,7 @@
   },
   "license": "ISC",
   "files": [
-    "bin/branches.d.ts",
-    "bin/branches.js",
-    "bin/link.d.ts",
-    "bin/link.js",
-    "bin/release.d.ts",
-    "bin/release.js",
-    "bin/zipup.d.ts",
-    "bin/zipup.js",
-    "bin/start.py",
-    "continuous-integration.d.ts",
-    "continuous-integration.js",
-    "copy-assets.d.ts",
-    "copy-assets.js",
-    "error-report.pug",
-    "install.rdf.pug",
-    "loader/json.d.ts",
-    "loader/json.js",
-    "loader/peggy.d.ts",
-    "loader/peggy.js",
-    "loader/trace.d.ts",
-    "loader/wrap.d.ts",
-    "loader/wrap.js",
-    "make-dirs.d.ts",
-    "make-dirs.js",
-    "package.json",
-    "rdf.d.ts",
-    "rdf.js",
-    "root.d.ts",
-    "root.js",
-    ".eslintrc.js",
-    "update.rdf.pug",
-    "version.d.ts",
-    "version.js",
-    "debug-log.js",
-    "debug-log.d.ts"
+    "*.{js,d.ts,pug}"
   ],
   "bugs": {
     "url": "https://github.com/retorquere/zotero-plugin/issues"
