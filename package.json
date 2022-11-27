@@ -4,6 +4,7 @@
   "description": "Zotero plugin builder",
   "homepage": "https://github.com/retorquere/zotero-plugin/wiki",
   "bin": {
+    "zotero-plugin-generate-update": "bin/generate-update-manifest.js",
     "zotero-plugin-release": "bin/release.js",
     "zotero-plugin-zipup": "bin/zipup.js",
     "zotero-start": "bin/start.py"
@@ -17,6 +18,7 @@
     "postversion": "git push --follow-tags",
     "test": "eslint . --ext .ts && npm run build",
     "build": "tsc && chmod +x bin/*.js",
+    "clean": "rm *.{js,d.ts} bin/*.{js,d.ts}",
     "prepublishOnly": "npm install && npm run build",
     "go": "npm run build && npm version patch && npm publish",
     "ncu": "ncu -u && npm i && git add package.json package-lock.json && git commit -m ncu"
