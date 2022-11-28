@@ -17,10 +17,10 @@ else {
   version = require(path.join(root, 'package.json')).version
 
   if (CI.service && !CI.tag) {
-    version = `${version}.${CI.build_number}`
+    version = `${version}-${CI.build_number}`
   }
   else if (!CI.service) {
-    version = `${version}.${os.userInfo().username}.${os.hostname()}`
+    version = `${version}-${os.userInfo().username}.${os.hostname()}`
   }
 
   if (!fs.existsSync(path.dirname(version_js))) fs.mkdirSync(path.dirname(version_js))
