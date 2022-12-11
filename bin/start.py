@@ -157,6 +157,7 @@ cmd = filter(None, [
   '-P', config.profile.name,
   '-ZoteroDebug' if config.windows else '-ZoteroDebugText',
   '-jsconsole',
+  '-debugger'
   '-datadir', 'profile',
   config.zotero.log and '>', config.zotero.log,
   '&',
