@@ -3,7 +3,7 @@ import path from 'path'
 
 import root from './root'
 
-const IGNORED_EXTENSIONS = ['.json', '.ts']
+const IGNORED_EXTENSIONS = ['.json', '.ts', '.tsx']
 
 function includeFile(src: string) {
   const include = !IGNORED_EXTENSIONS.includes(path.extname(src).toLowerCase())
